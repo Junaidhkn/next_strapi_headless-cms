@@ -1,7 +1,7 @@
 # Next 13 - App Router & Strapi Headless CMS
 
 
-## TechStach
+## TechStacK
 
 -  Next.js 13
 
