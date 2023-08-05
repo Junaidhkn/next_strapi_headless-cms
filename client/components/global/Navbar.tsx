@@ -1,26 +1,37 @@
 'use client';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import {
+	faCartShopping,
+	faMagnifyingGlass,
+	faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import { Input } from '@/components/ui/input';
 
 const Navbar = () => {
 	return (
-		<nav className='h-16 w-full bg-slate-900 flex justify-between text-white items-center px-11'>
-			<Link href='/'>
-				<h1 className='text-3xl'>Logo/ title</h1>
-			</Link>
-			<div className='flex text-2xl'>
-				<Link href='/products'>
-					<h3 className='px-5'>Products</h3>
+		<nav className='h-16 w-full bg-[#262828] flex justify-between text-white items-center px-11'>
+			<div className='flex-grow'>
+				<Link href='/'>
+					<h1 className='text-3xl'>Logo/ title</h1>
 				</Link>
+			</div>
+			<div className='flex'>
 				<div>
-					<FontAwesomeIcon icon={faCartShopping} />
+					<Link href='/'></Link>
 				</div>
+				<div>
+					<Link href='/'></Link>
+				</div>
+			</div>
+			<div className='flex flex-grow text-gray-900'>
+				<Input type='search' />
+				<FontAwesomeIcon icon={faMagnifyingGlass} />
+			</div>
+			<div className='flex flex-grow text-2xl'>
+				<FontAwesomeIcon icon={faCartShopping} />
 				<Link href='/signin'>
-					<h3 className='px-5'>Signin</h3>
-				</Link>
-				<Link href='/register'>
-					<h3 className='px-5'>Register</h3>
+					<FontAwesomeIcon icon={faUser} />
 				</Link>
 			</div>
 		</nav>
