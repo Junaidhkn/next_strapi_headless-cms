@@ -1,16 +1,12 @@
-'use client';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faCartShopping,
-	faMagnifyingGlass,
-	faUser,
-} from '@fortawesome/free-solid-svg-icons';
+
 import { Input } from '@/components/ui/input';
+import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
+import { BiShoppingBag } from 'react-icons/bi';
 
 const Navbar = () => {
 	return (
-		<nav className='h-16 w-full bg-[#262828] flex justify-evenly items-center text-white items-center'>
+		<nav className='h-16 w-full bg-[#262828] flex justify-evenly items-center text-white'>
 			<div className='flex basis-[20%]'>
 				<div className='flex items-center mr-2'>
 					<Link href='/'>
@@ -41,19 +37,16 @@ const Navbar = () => {
 					className='py-3 px-9 text-lg'
 					placeholder='Search for products'
 				/>
-				<FontAwesomeIcon
-					icon={faMagnifyingGlass}
-					className=' font-extrabold cursor-pointer text-green-600 absolute right-0 top-0 bottom-0 m-auto mr-3'
-				/>
+				<AiOutlineSearch className='text-lg font-extrabold cursor-pointer text-green-600 absolute right-0 top-0 bottom-0 m-auto mr-3' />
 			</div>
 			<div className='flex items-center justify-end basis-[20%] text-2xl'>
 				<div className='px-3 mx-4 cursor-pointer'>
-					<FontAwesomeIcon icon={faCartShopping} />
+					<BiShoppingBag />
 				</div>
 				<Link
 					className='px-3'
 					href='/signin'>
-					<FontAwesomeIcon icon={faUser} />
+					<AiOutlineUser />
 				</Link>
 			</div>
 		</nav>
