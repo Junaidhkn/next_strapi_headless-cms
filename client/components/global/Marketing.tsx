@@ -38,7 +38,15 @@ const Marketing = () => {
 					Free Worldwide delivery
 				</div>
 			</div>
-			<div className='flex flex-col text-center'>max-w-xs</div>
+			<div className='design flex flex-col justify-center items-center '>
+				<h3>UP TO</h3>
+				<h1>50% OFF ON EVERYTHING!</h1>
+				<h4> Discounts revealed ar checkout</h4>
+				<h3>
+					With code:<span className='ml-3'>BIGDEAL</span>
+				</h3>
+				<p>Term & Conditions Apply</p>
+			</div>
 		</div>
 	);
 };

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,4 +13,11 @@
 .delivery:hover {
    cursor: pointer;
    color: #fff;
+}
+
+.design {
+   height: 300px;
+   font-family: 'Caprasimo', cursive;
+   width: 100%;
+   background: linear-gradient(90deg, rgba(0, 36, 0, 1) 0%, rgba(150, 150, 173, 1) 0%, rgba(204, 174, 35, 1) 0%, rgba(0, 212, 255, 1) 100%);
 }
