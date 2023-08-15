@@ -21,3 +21,17 @@
    width: 100%;
    background: linear-gradient(90deg, rgba(0, 36, 0, 1) 0%, rgba(150, 150, 173, 1) 0%, rgba(204, 174, 35, 1) 0%, rgba(0, 212, 255, 1) 100%);
 }
+
+.display_products {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: 1fr;
+   grid-gap: 10px;
+}
+
+.featured {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 3fr;
+   grid-gap: 50px;
+}
