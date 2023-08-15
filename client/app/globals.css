@@ -32,6 +32,6 @@
 .featured {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   grid-template-rows: 3fr;
+   grid-template-rows: repeat(6, 1fr);
    grid-gap: 50px;
 }
