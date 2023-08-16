@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
 
 import { Input } from '@/components/ui/input';
 import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
@@ -15,13 +14,7 @@ import {
 } from '@/components/ui/tooltip';
 
 const Navbar = () => {
-	const [openCart, setOpenCart] = useState(false);
-
-	const cartHandler = () => {
-		setOpenCart(!openCart);
-	};
-	console.log(openCart);
-
+	const cartHandler = () => {};
 	return (
 		<nav className='h-16 w-full bg-[#262828] flex justify-evenly items-center text-white'>
 			<div className='flex basis-[20%]'>
