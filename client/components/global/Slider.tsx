@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { useEffect } from 'react';
+import Link from 'next/link';
 
-import CoverImage from '@/assets/coverImg.jpg';
+import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Slider = () => {
@@ -34,7 +35,9 @@ const Slider = () => {
 
 	return (
 		<section className='product'>
-			<h2 className='product-category'>best selling</h2>
+			<Link href='/best-sellers'>
+				<h2 className='product-category'>best selling</h2>
+			</Link>
 			<button className='pre-btn text-2xl'>
 				<AiOutlineArrowRight />
 			</button>
@@ -51,7 +54,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -71,7 +74,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -91,7 +94,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -111,7 +114,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -131,7 +134,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -151,7 +154,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -171,7 +174,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -191,7 +194,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -211,7 +214,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>
@@ -231,7 +234,7 @@ const Slider = () => {
 							width={800}
 							height={800}
 						/>
-						<button className='card-btn'>add to wishlist</button>
+						<button className='card-btn'>add to cart</button>
 					</div>
 					<div className='product-info'>
 						<h2 className='product-brand'>brand</h2>

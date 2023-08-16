@@ -44,7 +44,7 @@ const HomePage = () => {
 				<div className='bg-black'>product</div>
 				<div className='bg-black'>product</div>
 			</div>
-			<Link href='/best-sellers'>
+			{/* <Link href='/best-sellers'>
 				<h3 className='font-bold text-3xl text-center text-slate-800'>
 					Best Selling Products
 				</h3>
@@ -60,7 +60,7 @@ const HomePage = () => {
 				</div>
 				<div className='bg-black'>product</div>
 				<div className='bg-black'>product</div>
-			</div>
+			</div> */}
 			<Slider />
 		</main>
 	);
