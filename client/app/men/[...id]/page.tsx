@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import ProductImage from '@/assets/isaac-ramirez-EQgNKdk-Luk-unsplash.jpg';
+import Slider from '@/components/global/Slider';
 
 const itemDetailPage = () => {
 	return (
@@ -46,6 +47,7 @@ const itemDetailPage = () => {
 					dolorem blanditiis voluptates quos impedit dolor.lorem
 				</p>
 			</div>
+			<Slider />
 		</main>
 	);
 };

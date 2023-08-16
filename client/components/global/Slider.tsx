@@ -1,42 +1,64 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const Slider = () => {
+const Slider: React.FC = () => {
+	const productContainersRef = useRef<HTMLElement[]>([]);
+	const nxtBtnRefs = useRef<HTMLElement[]>([]);
+	const preBtnRefs = useRef<HTMLElement[]>([]);
+
 	useEffect(() => {
-		const productContainers = Array.from(
+		productContainersRef.current = Array.from(
 			document.querySelectorAll('.product-container'),
 		) as HTMLElement[];
-		const nxtBtn = Array.from(
+		nxtBtnRefs.current = Array.from(
 			document.querySelectorAll('.nxt-btn'),
 		) as HTMLElement[];
-		const preBtn = Array.from(
+		preBtnRefs.current = Array.from(
 			document.querySelectorAll('.pre-btn'),
 		) as HTMLElement[];
 
-		productContainers.forEach((item, i) => {
-			let containerDimensions = item.getBoundingClientRect();
-			let containerWidth = containerDimensions.width;
+		const handleClick = (index: number, scrollOffset: number) => {
+			const item = productContainersRef.current[index];
+			if (item) {
+				item.scrollLeft += scrollOffset;
+			}
+		};
 
-			nxtBtn[i].addEventListener('click', () => {
-				item.scrollLeft += containerWidth;
-			});
-
-			preBtn[i].addEventListener('click', () => {
-				item.scrollLeft -= containerWidth;
-			});
+		nxtBtnRefs.current.forEach((nxtBtn, i) => {
+			nxtBtn.addEventListener('click', () =>
+				handleClick(i, nxtBtn.offsetWidth),
+			);
 		});
+
+		preBtnRefs.current.forEach((preBtn, i) => {
+			preBtn.addEventListener('click', () =>
+				handleClick(i, -preBtn.offsetWidth),
+			);
+		});
+
+		return () => {
+			nxtBtnRefs.current.forEach((nxtBtn) => {
+				nxtBtn.removeEventListener('click', () => handleClick);
+			});
+
+			preBtnRefs.current.forEach((preBtn) => {
+				preBtn.removeEventListener('click', () => handleClick);
+			});
+		};
 	}, []);
 
 	return (
 		<section className='product'>
 			<Link href='/best-sellers'>
-				<h2 className='product-category'>best selling</h2>
+				<h2 className='mb-8 font-bold text-3xl text-center text-slate-800'>
+					Best Selling Products
+				</h2>
 			</Link>
 			<button className='pre-btn text-2xl'>
 				<AiOutlineArrowRight />
