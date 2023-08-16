@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';

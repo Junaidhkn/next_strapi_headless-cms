@@ -40,8 +40,11 @@ const Navbar = () => {
 				<AiOutlineSearch className='text-2xl font-extrabold cursor-pointer text-green-600 absolute right-0 top-0 bottom-0 m-auto mr-3' />
 			</div>
 			<div className='flex items-center justify-end basis-[20%] text-2xl'>
-				<div className='p-3 mx-4 cursor-pointer rounded-xl hover:bg-slate-700 '>
+				<div className='relative p-3 mx-4 cursor-pointer rounded-xl hover:bg-slate-700 '>
 					<BiShoppingBag />
+					<p className='text-sm absolute top-1 -right-1 text-black bg-slate-100 rounded-full px-1'>
+						3
+					</p>
 				</div>
 				<Link
 					className='p-3 rounded-xl hover:bg-slate-700 '
