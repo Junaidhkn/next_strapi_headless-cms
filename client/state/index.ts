@@ -1,28 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+interface CartItem {
+	id: number;
+	count: number;
+}
+
+interface CartState {
+	isCartOpen: boolean;
+	cart: CartItem[];
+	items: any[]; // You might want to replace 'any' with a proper type
+}
+
+const initialState: CartState = {
 	isCartOpen: false,
 	cart: [],
 	items: [],
 };
 
-export const cartSlice = createSlice({
+const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		setItems: (state, action) => {
+		setItems: (state, action: PayloadAction<any[]>) => {
 			state.items = action.payload;
 		},
-
-		addToCart: (state, action) => {
+		addToCart: (state, action: PayloadAction<{ item: CartItem }>) => {
 			state.cart = [...state.cart, action.payload.item];
 		},
-
-		removeFromCart: (state, action) => {
+		removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
 			state.cart = state.cart.filter((item) => item.id !== action.payload.id);
 		},
-
-		increaseCount: (state, action) => {
+		increaseCount: (state, action: PayloadAction<{ id: number }>) => {
 			state.cart = state.cart.map((item) => {
 				if (item.id === action.payload.id) {
 					item.count++;
@@ -30,8 +38,7 @@ export const cartSlice = createSlice({
 				return item;
 			});
 		},
-
-		decreaseCount: (state, action) => {
+		decreaseCount: (state, action: PayloadAction<{ id: number }>) => {
 			state.cart = state.cart.map((item) => {
 				if (item.id === action.payload.id && item.count > 1) {
 					item.count--;
@@ -39,7 +46,6 @@ export const cartSlice = createSlice({
 				return item;
 			});
 		},
-
 		setIsCartOpen: (state) => {
 			state.isCartOpen = !state.isCartOpen;
 		},
