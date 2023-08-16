@@ -1,12 +1,36 @@
 import Link from 'next/link';
 
+import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai';
+import { BiLogoMastercard, BiLogoPaypal, BiLogoVisa } from 'react-icons/bi';
+import { BsSnapchat } from 'react-icons/bs';
+
 const Footer = () => {
 	return (
 		<>
-			<div className='my-20 flex justify-center gap-8 items-center h-14 bg-slate-50'>
-				<div className='bg-white'>Social Icons</div>
+			<div className='my-20 flex justify-center gap-16 items-center h-14 bg-slate-50'>
+				<div className='flex text-6xl gap-10'>
+					<div className='text-pink-600'>
+						<AiFillInstagram />
+					</div>
+					<div className='text-blue-500'>
+						<AiOutlineTwitter />
+					</div>
+					<div className='text-yellow-500'>
+						<BsSnapchat />
+					</div>
+				</div>
 				<span className='bg-slate-800 h-8 w-[0.5px]'></span>
-				<div className='bg-rose-800'>card icon</div>
+				<div className='flex text-6xl gap-10'>
+					<div className='text-red-300'>
+						<BiLogoVisa />
+					</div>
+					<div className='text-blue-800'>
+						<BiLogoPaypal />
+					</div>
+					<div className='text-red-500'>
+						<BiLogoMastercard />
+					</div>
+				</div>
 			</div>
 			<div className='flex flex-col'>
 				<div className='flex items-center bg-slate-300 text-gray-700 w-full h-16'>
@@ -42,7 +66,7 @@ const Footer = () => {
 						</ul>
 					</div>
 				</div>
-				<footer className='flex justify-evenly items-center w-full h-6 bg-orange-200'>
+				<footer className='flex justify-evenly items-center w-full h-12 bg-orange-200'>
 					<p className=''>&copy; 2023-26 ECOM. All rights reserved</p>
 					<p className=''>Made with ❤️ by Junaid Hassan Khan</p>
 				</footer>
