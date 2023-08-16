@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import CoverImage from '../assets/coverImg.jpg';
 import Marketing from '@/components/global/Marketing';
+import Slider from '@/components/global/Slider';
 
 const HomePage = () => {
 	return (
@@ -60,6 +61,7 @@ const HomePage = () => {
 				<div className='bg-black'>product</div>
 				<div className='bg-black'>product</div>
 			</div>
+			<Slider />
 		</main>
 	);
 };
