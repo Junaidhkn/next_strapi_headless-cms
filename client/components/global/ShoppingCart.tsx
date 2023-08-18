@@ -9,8 +9,8 @@ import { RiDeleteBinFill } from 'react-icons/ri';
 
 const ShoppingCart = () => {
 	return (
-		<main className='fixed right-0 top-16 bottom-0 w-[470px] h-full'>
-			<div className='p-6 w-full flex flex-col bg-slate-300 max-h-[550px] overflow-y-scroll'>
+		<main className='absolute right-0 top-16 bottom-0 w-[470px] h-full z-50'>
+			<div className='p-6 w-full flex flex-col bg-slate-300 max-h-[650px] '>
 				<button className='absolute w-8 p-2 text-lg top-4 left-5'>
 					<ImCross />
 				</button>

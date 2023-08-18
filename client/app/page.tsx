@@ -5,10 +5,13 @@ import CoverImageMen from '@/assets/menCover.jpg';
 import CoverImageWomen from '@/assets/womenCover.jpg';
 import Marketing from '@/components/global/Marketing';
 import Slider from '@/components/global/Slider';
+import ShoppingCart from '@/components/global/ShoppingCart';
 
 const HomePage = () => {
+	let open = false;
 	return (
-		<main>
+		<main className=''>
+			{open && <ShoppingCart />}
 			<Marketing />
 			<div className='p-14 flex justify-center gap-8'>
 				<Link
