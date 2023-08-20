@@ -3,14 +3,10 @@
 import { useState } from 'react';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
-	const [classes, setClasses] = useState(
-		'px-5 py-2 hover:rounded-lg hover:border border-gray-900',
-	);
 	const [activeButton, setActiveButton] = useState(1);
 
 	const logicHandler = (buttonId: number) => {
 		setActiveButton(buttonId);
-		setClasses('px-5 py-2 rounded-lg bg-slate-700 text-white font-bold');
 	};
 
 	return (
