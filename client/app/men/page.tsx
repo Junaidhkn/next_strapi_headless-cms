@@ -2,10 +2,12 @@ import Image from 'next/image';
 
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import Link from 'next/link';
+import Tabs from '@/components/global/Tabs';
 
 const MenProductsPage = () => {
 	return (
-		<main className='flex justify-center'>
+		<main className='flex flex-col justify-center'>
+			<Tabs />
 			<div className='p-11 grid gap-8 grid-cols-4'>
 				<Link href={'men/asdasd'}>
 					<div className='products-card'>
