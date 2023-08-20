@@ -7,8 +7,14 @@ import Marketing from '@/components/global/Marketing';
 import Slider from '@/components/global/Slider';
 import ShoppingCart from '@/components/global/ShoppingCart';
 
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/Provider';
+
 const HomePage = () => {
-	let open = false;
+	const open = useSelector((state: RootState) => {
+		return state.cart.isCartOpen;
+	});
+
 	return (
 		<main className=''>
 			{open && <ShoppingCart />}

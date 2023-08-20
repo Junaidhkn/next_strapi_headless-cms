@@ -6,12 +6,35 @@ import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 import { RiDeleteBinFill } from 'react-icons/ri';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { RootState } from '@/redux/Provider';
+import { setIsCartOpen } from '@/redux';
 
 const ShoppingCart = () => {
+	const dispatch = useDispatch();
+
+	const items = useSelector((state: RootState) => {
+		return state.cart.items;
+	});
+
+	const cart = useSelector((state: RootState) => {
+		return state.cart.cart;
+	});
+	const open = useSelector((state: RootState) => {
+		return state.cart.isCartOpen;
+	});
+
+	const showCartHandler = () => {
+		dispatch(setIsCartOpen());
+	};
+
 	return (
 		<main className='absolute right-0 top-16 bottom-0 w-[470px] h-full z-50'>
 			<div className='p-6 w-full flex flex-col bg-slate-300 max-h-[650px] '>
-				<button className='absolute w-8 p-2 text-lg top-4 left-5'>
+				<button
+					onClick={showCartHandler}
+					className='absolute w-8 p-2 text-lg top-4 left-5'>
 					<ImCross />
 				</button>
 				<div className='flex flex-col mb-9 items-center'>
