@@ -2,7 +2,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import cartReducer from '@/redux/index';
+import cartReducer from '@/store/index';
 
 const store = configureStore({
 	reducer: {

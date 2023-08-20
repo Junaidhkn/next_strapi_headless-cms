@@ -5,19 +5,10 @@ import CoverImageMen from '@/assets/menCover.jpg';
 import CoverImageWomen from '@/assets/womenCover.jpg';
 import Marketing from '@/components/global/Marketing';
 import Slider from '@/components/global/Slider';
-import ShoppingCart from '@/components/global/ShoppingCart';
 
-import { useSelector } from 'react-redux';
-import { RootState } from '@/redux/Provider';
-
-const HomePage = () => {
-	const open = useSelector((state: RootState) => {
-		return state.cart.isCartOpen;
-	});
-
+const HomePage = async () => {
 	return (
 		<main className=''>
-			{open && <ShoppingCart />}
 			<Marketing />
 			<div className='p-14 flex justify-center gap-8'>
 				<Link

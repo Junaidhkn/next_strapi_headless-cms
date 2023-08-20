@@ -8,8 +8,8 @@ import { ImCross } from 'react-icons/im';
 import { RiDeleteBinFill } from 'react-icons/ri';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { RootState } from '@/redux/Provider';
-import { setIsCartOpen } from '@/redux';
+import { RootState } from '@/store/Provider';
+import { setIsCartOpen } from '@/store';
 
 const ShoppingCart = () => {
 	const dispatch = useDispatch();

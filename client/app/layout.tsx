@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import Footer from '@/components/global/Footer';
 
-import { Providers } from '@/redux/Provider';
+import { Providers } from '@/store/Provider';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
