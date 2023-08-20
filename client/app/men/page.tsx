@@ -4,9 +4,8 @@ import Products from '@/components/global/Products';
 const MenProductsPage = () => {
 	return (
 		<main className='flex flex-col justify-center'>
-			<Tabs>
-				<Products />
-			</Tabs>
+			<Tabs />
+			<Products />
 		</main>
 	);
 };

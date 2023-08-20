@@ -42,17 +42,17 @@ const Footer = () => {
 						</Link>
 					</div>
 					<div className='flex justify-between basis-[90%]'>
-						<ul className='flex gap-36 items-center'>
-							<div className='flex justify-start gap-4'>
+						<div className='flex gap-36 items-center'>
+							<ul className='flex justify-start gap-4'>
 								<Link href='/men'>
 									<li className='px-5'>Men</li>
 								</Link>
 								<Link href='/women'>
 									<li className='px-5'>Women</li>
 								</Link>
-							</div>
+							</ul>
 							<span className='bg-slate-800 h-8 w-[0.5px]'></span>
-							<div className='flex gap-6'>
+							<ul className='flex gap-6'>
 								<Link href='/best-sellers'>
 									<li className='px-5'>Best Sellers</li>
 								</Link>
@@ -62,8 +62,8 @@ const Footer = () => {
 								<Link href='/new-arrivals'>
 									<li className='px-5'>New Arrivals</li>
 								</Link>
-							</div>
-						</ul>
+							</ul>
+						</div>
 					</div>
 				</div>
 				<footer className='flex justify-evenly items-center w-full h-12 bg-orange-200'>

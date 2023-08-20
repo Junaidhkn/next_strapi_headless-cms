@@ -3,7 +3,15 @@ import Image from 'next/image';
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import Link from 'next/link';
 
-const Products = () => {
+async function getItems() {
+	const res = await fetch('https://fakestoreapi.com/products');
+	const data = await res.json();
+	return data;
+}
+
+const Products = async () => {
+	const data = await getItems();
+	console.log(data);
 	return (
 		<div className='p-11 grid gap-8 grid-cols-4'>
 			<Link href={'men/asdasd'}>

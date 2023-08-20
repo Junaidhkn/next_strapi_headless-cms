@@ -13,7 +13,7 @@ const Marketing = () => {
 					<TooltipProvider>
 						<Tooltip>
 							<TooltipTrigger>
-								<p className='text-sm tracking-wide'>
+								<div className='text-sm tracking-wide'>
 									<p>UP TO 50% OFF EVERYTHING!*</p>
 									<p>Discounts revealed at checkout</p>
 									<p>
@@ -22,7 +22,7 @@ const Marketing = () => {
 											BIGDEAL
 										</span>
 									</p>
-								</p>
+								</div>
 							</TooltipTrigger>
 							<TooltipContent side='bottom'>
 								<p className='text-sm max-w-xs'>
