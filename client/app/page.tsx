@@ -57,23 +57,6 @@ const HomePage = async () => {
 				<div className='bg-black'>product</div>
 				<div className='bg-black'>product</div>
 			</div>
-			{/* <Link href='/best-sellers'>
-				<h3 className='font-bold text-3xl text-center text-slate-800'>
-					Best Selling Products
-				</h3>
-			</Link>
-			<div className='grid display_products p-5'>
-				<div className='bg-black pointer '>
-					<Image
-						src={CoverImage}
-						alt='Cover Image'
-						width={800}
-						height={800}
-					/>
-				</div>
-				<div className='bg-black'>product</div>
-				<div className='bg-black'>product</div>
-			</div> */}
 			<Slider />
 		</main>
 	);

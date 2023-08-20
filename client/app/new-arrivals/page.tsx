@@ -3,7 +3,7 @@ import Image from 'next/image';
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import Link from 'next/link';
 
-const topRatedPage = () => {
+const newArrivalsPage = () => {
 	return (
 		<main className='flex justify-center'>
 			<div className='p-11 grid gap-8 grid-cols-4'>
@@ -265,4 +265,4 @@ const topRatedPage = () => {
 	);
 };
 
-export default topRatedPage;
+export default newArrivalsPage;

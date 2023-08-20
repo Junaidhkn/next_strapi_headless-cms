@@ -59,7 +59,7 @@ const Footer = () => {
 								<Link href='/top-rated'>
 									<li className='px-5'>Top Rated</li>
 								</Link>
-								<Link href='/best-sellers'>
+								<Link href='/new-arrivals'>
 									<li className='px-5'>New Arrivals</li>
 								</Link>
 							</div>
