@@ -33,16 +33,15 @@ const Products = ({ products }: ItemListProps) => {
 			</h1>
 		);
 	return (
-		<div className='p-11 grid gap-8 grid-cols-4'>
+		<div className='max-w-[1350px] mx-auto p-11 grid gap-8 grid-cols-4'>
 			{products.data.map((product) => {
 				return (
 					<Link
-						href={'men/asdasd'}
-						className='w-[250px]'
-						key={product.id}>
-						<div className='products-card'>
+						href='/'
+						key={product.id}
+						className='w-[250px]'>
+						<div className='product-card'>
 							<div className='product-image'>
-								<span className='discount-tag'>50% off</span>
 								<Image
 									src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
 									alt='Cover Image'

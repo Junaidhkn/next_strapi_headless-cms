@@ -64,7 +64,9 @@ const HomePage = async () => {
 					Top Rated Products
 				</h3>
 			</Link>
-			<Products products={topRated} />
+			<div className='max-w-[1250px] text-center mx-auto'>
+				<Products products={topRated} />
+			</div>
 			<Slider products={bestSellers} />
 		</main>
 	);
