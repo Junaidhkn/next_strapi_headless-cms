@@ -1,18 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Input } from '@/components/ui/input';
-import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
-
-import { BiShoppingBag } from 'react-icons/bi';
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
+import { BiShoppingBag } from 'react-icons/bi';
+
 import { RootState } from '@/store/Provider';
 import { setIsCartOpen } from '@/store';
 import ShoppingCart from './ShoppingCart';
