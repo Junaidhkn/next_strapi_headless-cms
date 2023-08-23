@@ -26,6 +26,12 @@ interface ItemListProps {
 }
 
 const Products = ({ products }: ItemListProps) => {
+	if (products.data.length === 0)
+		return (
+			<h1 className='text-red-600 font-extrabold text-center m-8'>
+				No products found!
+			</h1>
+		);
 	return (
 		<div className='p-11 grid gap-8 grid-cols-4'>
 			{products.data.map((product) => {

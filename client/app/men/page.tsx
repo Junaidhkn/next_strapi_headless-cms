@@ -1,7 +1,6 @@
 import Tabs from '@/components/global/Tabs';
-import Products from '@/components/global/Products';
 
-const productsMen = async () => {
+const productsMenAll = async () => {
 	const res = await fetch(
 		'http://localhost:1337/api/items?populate=*&filters[gender]=male',
 	);
@@ -9,12 +8,43 @@ const productsMen = async () => {
 	return products;
 };
 
+const productsMenTopRated = async () => {
+	const res = await fetch(
+		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=topRated',
+	);
+	const products = await res.json();
+	return products;
+};
+
+const productsMenNewArrivals = async () => {
+	const res = await fetch(
+		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=newArrivals',
+	);
+	const products = await res.json();
+	return products;
+};
+
+const productsMenBestSelling = async () => {
+	const res = await fetch(
+		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=bestSelling',
+	);
+	const products = await res.json();
+	return products;
+};
+
 const MenProductsPage = async () => {
-	const products = await productsMen();
+	const allProducts = await productsMenAll();
+	const topRatedProducts = await productsMenTopRated();
+	const newArrivalProducts = await productsMenNewArrivals();
+	const bestSellingProducts = await productsMenBestSelling();
 	return (
 		<main className='flex flex-col justify-center'>
-			<Tabs />
-			<Products products={products} />
+			<Tabs
+				allProducts={allProducts}
+				topRatedProducts={topRatedProducts}
+				newArrivalProducts={newArrivalProducts}
+				bestSellingProducts={bestSellingProducts}
+			/>
 		</main>
 	);
 };

@@ -1,4 +1,3 @@
-import Tabs from '@/components/global/Tabs';
 import Products from '@/components/global/Products';
 
 const productsWomen = async () => {
@@ -13,7 +12,6 @@ const WomenProductsPage = async () => {
 	const products = await productsWomen();
 	return (
 		<main className='flex flex-col justify-center'>
-			<Tabs />
 			<Products products={products} />
 		</main>
 	);
