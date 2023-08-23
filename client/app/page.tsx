@@ -5,8 +5,18 @@ import CoverImageMen from '@/assets/menCover.jpg';
 import CoverImageWomen from '@/assets/womenCover.jpg';
 import Marketing from '@/components/global/Marketing';
 import Slider from '@/components/global/Slider';
+import Products from '@/components/global/Products';
+
+const topRatedProducts = async () => {
+	const res = await fetch(
+		'http://localhost:1337/api/items?populate=*&filters[category][$eq]=topRated&pagination[limit]=4',
+	);
+	const products = await res.json();
+	return products;
+};
 
 const HomePage = async () => {
+	const topRated = await topRatedProducts();
 	return (
 		<main className=''>
 			<Marketing />
@@ -15,7 +25,7 @@ const HomePage = async () => {
 					href='/men'
 					className='relative hover:opacity-90'>
 					<Image
-						className='imageStyle'
+						className='imageStyle object-contain'
 						src={CoverImageMen}
 						alt='Cover Image'
 						width={500}
@@ -45,18 +55,7 @@ const HomePage = async () => {
 					Top Rated Products
 				</h3>
 			</Link>
-			<div className='grid display_products p-5'>
-				{/* <div className='bg-black pointer '>
-					<Image
-						src={CoverImageMen}
-						alt='Cover Image'
-						width={800}
-						height={800}
-					/>
-				</div>
-				<div className='bg-black'>product</div>
-				<div className='bg-black'>product</div> */}
-			</div>
+			<Products products={topRated} />
 			<Slider />
 		</main>
 	);

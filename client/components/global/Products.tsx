@@ -1,103 +1,61 @@
 import Image from 'next/image';
-
-import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import Link from 'next/link';
 
-const Products = async () => {
+interface ItemAttributes {
+	name: string;
+	shortDescription: string;
+	longDescription: string;
+	price: number;
+	category: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	gender: string;
+	image: any; // You can replace 'any' with an appropriate image interface
+}
+
+interface Item {
+	id: number;
+	attributes: ItemAttributes;
+}
+
+interface ItemListProps {
+	products: {
+		data: Item[];
+	};
+}
+
+const Products = ({ products }: ItemListProps) => {
 	return (
 		<div className='p-11 grid gap-8 grid-cols-4'>
-			<Link
-				href={'men/asdasd'}
-				className='w-[250px]'>
-				<div className='products-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-					</div>
-				</div>
-			</Link>
-			<Link
-				href={'men/asdasd'}
-				className='w-[250px]'>
-				<div className='products-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-					</div>
-				</div>
-			</Link>
-			<Link
-				href={'men/asdasd'}
-				className='w-[250px]'>
-				<div className='products-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-					</div>
-				</div>
-			</Link>
-			<Link
-				href={'men/asdasd'}
-				className='w-[250px]'>
-				<div className='products-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-					</div>
-				</div>
-			</Link>
+			{products.data.map((product) => {
+				return (
+					<Link
+						href={'men/asdasd'}
+						className='w-[250px]'
+						key={product.id}>
+						<div className='products-card'>
+							<div className='product-image'>
+								<span className='discount-tag'>50% off</span>
+								<Image
+									src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
+									alt='Cover Image'
+									width={800}
+									height={800}
+								/>
+								<button className='card-btn'>add to cart</button>
+							</div>
+							<div className='product-info'>
+								<h2 className='product-brand'>{product.attributes.name}</h2>
+								<p className='product-short-description'>
+									a short line about the cloth..
+								</p>
+								<span className='price'>${product.attributes.price}</span>
+							</div>
+						</div>
+					</Link>
+				);
+			})}
 		</div>
 	);
 };
