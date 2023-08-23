@@ -4,9 +4,8 @@ import { ImCross } from 'react-icons/im';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '@/store/Provider';
-import { setIsCartOpen, setItems } from '@/store';
+import { setIsCartOpen } from '@/store';
 import Item from './Item';
-import { useEffect } from 'react';
 
 const ShoppingCart = () => {
 	const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const ShoppingCart = () => {
 	const cart = useSelector((state: RootState) => {
 		return state.cart.cart;
 	});
-	// console.log(cart)
+	console.log(cart);
 	const open = useSelector((state: RootState) => {
 		return state.cart.isCartOpen;
 	});
