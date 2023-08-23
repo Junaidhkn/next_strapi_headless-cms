@@ -2,6 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CartItem {
 	id: number;
+	name: string;
+	price: number;
+	imageUrl: string;
 	count: number;
 }
 

@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 
-import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { setItems } from '@/store';
 
 interface ItemAttributes {
 	name: string;
@@ -35,6 +36,18 @@ const Slider: React.FC<ItemListProps> = ({ products }) => {
 	const productContainersRef = useRef<HTMLElement[]>([]);
 	const nxtBtnRefs = useRef<HTMLElement[]>([]);
 	const preBtnRefs = useRef<HTMLElement[]>([]);
+
+	const dispatch = useDispatch();
+
+	const getItems = async () => {
+		const res = await fetch('http://localhost:1337/api/items?populate=image');
+		const items = await await res.json();
+		dispatch(setItems(items.data));
+	};
+
+	useEffect(() => {
+		getItems();
+	}, []);
 
 	useEffect(() => {
 		productContainersRef.current = Array.from(
