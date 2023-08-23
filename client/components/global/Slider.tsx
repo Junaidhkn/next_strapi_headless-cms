@@ -7,7 +7,31 @@ import Link from 'next/link';
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const Slider: React.FC = () => {
+interface ItemAttributes {
+	name: string;
+	shortDescription: string;
+	longDescription: string;
+	price: number;
+	category: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	gender: string;
+	image: any; // You can replace 'any' with an appropriate image interface
+}
+
+interface Item {
+	id: number;
+	attributes: ItemAttributes;
+}
+
+interface ItemListProps {
+	products: {
+		data: Item[];
+	};
+}
+
+const Slider: React.FC<ItemListProps> = ({ products }) => {
 	const productContainersRef = useRef<HTMLElement[]>([]);
 	const nxtBtnRefs = useRef<HTMLElement[]>([]);
 	const preBtnRefs = useRef<HTMLElement[]>([]);
@@ -67,206 +91,33 @@ const Slider: React.FC = () => {
 				<AiOutlineArrowRight />
 			</button>
 			<div className='product-container'>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
-				<div className='product-card'>
-					<div className='product-image'>
-						<span className='discount-tag'>50% off</span>
-						<Image
-							src={CoverImage}
-							alt='Cover Image'
-							width={800}
-							height={800}
-						/>
-						<button className='card-btn'>add to cart</button>
-					</div>
-					<div className='product-info'>
-						<h2 className='product-brand'>brand</h2>
-						<p className='product-short-description'>
-							a short line about the cloth..
-						</p>
-						<span className='price'>$20</span>
-						<span className='actual-price'>$40</span>
-					</div>
-				</div>
+				{products.data.map((product) => {
+					return (
+						<Link
+							href='/'
+							key={product.id}>
+							<div className='product-card'>
+								<div className='product-image'>
+									<span className='discount-tag'>50% off</span>
+									<Image
+										src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
+										alt='Cover Image'
+										width={800}
+										height={800}
+									/>
+									<button className='card-btn'>add to cart</button>
+								</div>
+								<div className='product-info'>
+									<h2 className='product-brand'>{product.attributes.name}</h2>
+									<p className='product-short-description'>
+										{product.attributes.shortDescription.slice(0, 30)}...
+									</p>
+									<span className='price'>${product.attributes.price}</span>
+								</div>
+							</div>
+						</Link>
+					);
+				})}
 			</div>
 		</section>
 	);

@@ -48,7 +48,7 @@ const Products = ({ products }: ItemListProps) => {
 							<div className='product-info'>
 								<h2 className='product-brand'>{product.attributes.name}</h2>
 								<p className='product-short-description'>
-									a short line about the cloth..
+									{product.attributes.shortDescription.slice(0, 30)}...
 								</p>
 								<span className='price'>${product.attributes.price}</span>
 							</div>

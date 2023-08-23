@@ -15,8 +15,17 @@ const topRatedProducts = async () => {
 	return products;
 };
 
+const bestSellingProducts = async () => {
+	const res = await fetch(
+		'http://localhost:1337/api/items?populate=*&filters[category][$eq]=bestSellers',
+	);
+	const products = await res.json();
+	return products;
+};
+
 const HomePage = async () => {
 	const topRated = await topRatedProducts();
+	const bestSellers = await bestSellingProducts();
 	return (
 		<main className=''>
 			<Marketing />
@@ -56,7 +65,7 @@ const HomePage = async () => {
 				</h3>
 			</Link>
 			<Products products={topRated} />
-			<Slider />
+			<Slider products={bestSellers} />
 		</main>
 	);
 };
