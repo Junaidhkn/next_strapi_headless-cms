@@ -3,7 +3,7 @@ import Image from 'next/image';
 import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
 import Link from 'next/link';
 
-const BestSellersPage = () => {
+const BestSellersPage = async () => {
 	return (
 		<main className='flex justify-center'>
 			<div className='p-11 grid gap-8 grid-cols-4'>

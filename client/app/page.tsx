@@ -46,7 +46,7 @@ const HomePage = async () => {
 				</h3>
 			</Link>
 			<div className='grid display_products p-5'>
-				<div className='bg-black pointer '>
+				{/* <div className='bg-black pointer '>
 					<Image
 						src={CoverImageMen}
 						alt='Cover Image'
@@ -55,7 +55,7 @@ const HomePage = async () => {
 					/>
 				</div>
 				<div className='bg-black'>product</div>
-				<div className='bg-black'>product</div>
+				<div className='bg-black'>product</div> */}
 			</div>
 			<Slider />
 		</main>
