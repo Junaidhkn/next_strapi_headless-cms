@@ -30,6 +30,7 @@ const ShoppingCart = () => {
 		dispatch(setIsCartOpen());
 	};
 
+	// const url = process.env.ACTIVE_URI;
 	return (
 		<main className='absolute right-0 top-16 bottom-0 w-[470px] h-full z-50'>
 			<div className='p-6 w-full flex flex-col bg-slate-300 max-h-[650px] '>
@@ -85,7 +86,7 @@ const ShoppingCart = () => {
 									<div className='order-1'>
 										<Image
 											className=' h-52'
-											src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`}
+											src={`${url}/${item.attributes.image.data.attributes.formats.small.url}`}
 											priority={true}
 											width={150}
 											height={150}
