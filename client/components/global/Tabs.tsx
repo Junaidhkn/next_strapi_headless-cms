@@ -1,11 +1,6 @@
 'use client';
 
-import {
-	ComponentProps,
-	ComponentPropsWithRef,
-	PropsWithRef,
-	useState,
-} from 'react';
+import { useState } from 'react';
 import Products from './Products';
 
 interface ItemAttributes {
@@ -33,10 +28,10 @@ interface ItemListProps {
 }
 
 interface TabsProps {
-	allProducts: ItemListProps;
-	topRatedProducts: ItemListProps;
-	newArrivalProducts: ItemListProps;
-	bestSellingProducts: ItemListProps;
+	allProducts: ItemListProps['products'];
+	topRatedProducts: ItemListProps['products'];
+	newArrivalProducts: ItemListProps['products'];
+	bestSellingProducts: ItemListProps['products'];
 }
 
 const Tabs: React.FC<TabsProps> = ({
