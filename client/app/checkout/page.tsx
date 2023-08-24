@@ -4,7 +4,7 @@ import React from 'react';
 const CheckOut = () => {
 	return (
 		<>
-			<ShoppingCart />
+			<div>Check Out Page</div>
 		</>
 	);
 };

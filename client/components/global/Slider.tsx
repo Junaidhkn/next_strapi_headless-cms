@@ -1,12 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { setItems } from '@/store';
+import { addToCart, setItems } from '@/store';
 
 interface ItemAttributes {
 	name: string;
@@ -33,11 +33,12 @@ interface ItemListProps {
 }
 
 const Slider: React.FC<ItemListProps> = ({ products }) => {
+	const [count, setCount] = useState(1);
+	const dispatch = useDispatch();
+
 	const productContainersRef = useRef<HTMLElement[]>([]);
 	const nxtBtnRefs = useRef<HTMLElement[]>([]);
 	const preBtnRefs = useRef<HTMLElement[]>([]);
-
-	const dispatch = useDispatch();
 
 	const getItems = async () => {
 		const res = await fetch('http://localhost:1337/api/items?populate=image');
@@ -106,29 +107,35 @@ const Slider: React.FC<ItemListProps> = ({ products }) => {
 			<div className='product-container'>
 				{products.data.map((product) => {
 					return (
-						<Link
-							href='/'
-							key={product.id}>
-							<div className='product-card'>
-								<div className='product-image'>
-									<span className='discount-tag'>50% off</span>
+						<div
+							key={product.id}
+							className='product-card'>
+							<div className='product-image'>
+								<span className='discount-tag'>50% off</span>
+								<Link href='/'>
 									<Image
 										src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
 										alt='Cover Image'
 										width={800}
 										height={800}
 									/>
-									<button className='card-btn'>add to cart</button>
-								</div>
-								<div className='product-info'>
-									<h2 className='product-brand'>{product.attributes.name}</h2>
-									<p className='product-short-description'>
-										{product.attributes.shortDescription.slice(0, 30)}...
-									</p>
-									<span className='price'>${product.attributes.price}</span>
-								</div>
+								</Link>
+								<button
+									onClick={() => {
+										dispatch(addToCart({ item: { ...product, count } }));
+									}}
+									className='card-btn'>
+									add to cart
+								</button>
 							</div>
-						</Link>
+							<div className='product-info'>
+								<h2 className='product-brand'>{product.attributes.name}</h2>
+								<p className='product-short-description'>
+									{product.attributes.shortDescription.slice(0, 30)}...
+								</p>
+								<span className='price'>${product.attributes.price}</span>
+							</div>
+						</div>
 					);
 				})}
 			</div>

@@ -1,5 +1,10 @@
+'use client';
+
+import { addToCart } from '@/store';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 interface ItemAttributes {
 	name: string;
@@ -26,6 +31,8 @@ interface ItemListProps {
 }
 
 const Products = ({ products }: ItemListProps) => {
+	const [count, setCount] = useState(1);
+	const dispatch = useDispatch();
 	if (products.data.length === 0)
 		return (
 			<h1 className='text-red-600 font-extrabold text-center m-8'>
@@ -36,29 +43,36 @@ const Products = ({ products }: ItemListProps) => {
 		<div className='max-w-[1350px] mx-auto p-11 grid gap-8 grid-cols-4'>
 			{products.data.map((product) => {
 				return (
-					<Link
-						href='/'
+					<div
 						key={product.id}
-						className='w-[250px]'>
-						<div className='product-card'>
-							<div className='product-image'>
+						className='product-card'>
+						<div className='product-image'>
+							<Link
+								href='/'
+								className='w-[250px]'>
 								<Image
 									src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
 									alt='Cover Image'
 									width={800}
 									height={800}
 								/>
-								<button className='card-btn'>add to cart</button>
-							</div>
-							<div className='product-info'>
-								<h2 className='product-brand'>{product.attributes.name}</h2>
-								<p className='product-short-description'>
-									{product.attributes.shortDescription.slice(0, 30)}...
-								</p>
-								<span className='price'>${product.attributes.price}</span>
-							</div>
+							</Link>
+							<button
+								onClick={() => {
+									dispatch(addToCart({ item: { ...product, count } }));
+								}}
+								className='card-btn'>
+								add to cart
+							</button>
 						</div>
-					</Link>
+						<div className='product-info'>
+							<h2 className='product-brand'>{product.attributes.name}</h2>
+							<p className='product-short-description'>
+								{product.attributes.shortDescription.slice(0, 30)}...
+							</p>
+							<span className='price'>${product.attributes.price}</span>
+						</div>
+					</div>
 				);
 			})}
 		</div>

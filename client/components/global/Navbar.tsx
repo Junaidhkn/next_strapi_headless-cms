@@ -24,6 +24,10 @@ const Navbar = () => {
 		return state.cart.isCartOpen;
 	});
 
+	const cart = useSelector((state: RootState) => {
+		return state.cart.cart;
+	});
+
 	const cartHandler = () => {
 		dispatch(setIsCartOpen());
 	};
@@ -69,7 +73,7 @@ const Navbar = () => {
 						className='relative p-3 mx-4 cursor-pointer rounded-xl hover:bg-slate-700 '>
 						<BiShoppingBag />
 						<p className='text-sm absolute top-1 -right-1 text-black bg-slate-100 rounded-full px-1'>
-							2
+							{cart.length}
 						</p>
 					</div>
 					<div className='p-2 mx-4 cursor-pointer rounded-xl hover:bg-slate-700'>

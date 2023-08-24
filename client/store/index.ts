@@ -1,10 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+interface ItemAttributes {
+	name: string;
+	shortDescription: string;
+	longDescription: string;
+	price: number;
+	category: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	gender: string;
+	image: any; // You can replace 'any' with an appropriate image interface
+}
+
+interface Item {
+	id: number;
+	attributes: ItemAttributes;
+}
+
 interface CartItem {
 	id: number;
-	name: string;
-	price: number;
-	imageUrl: string;
+	attributes: ItemAttributes;
 	count: number;
 }
 
