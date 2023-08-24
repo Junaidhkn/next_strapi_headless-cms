@@ -71,13 +71,21 @@ const ItemDetailPage = ({ params }: { params: { id: string } }) => {
 
 	if (!product) return <h1>Loading...</h1>;
 
+	const handleClick = () => {
+		dispatch(decreaseCount({ id: product?.id }));
+		if (count > 1) {
+			setCount((prev) => prev - 1);
+		}
+	};
+
 	return (
 		<main>
 			<div className='flex my-20 max-w-[1000px] mx-auto gap-16'>
-				<div>
+				<div className='w-[2200px]'>
 					<Image
 						src={`http://localhost:1337${product?.attributes.image.data.attributes.formats.medium.url}`}
 						alt='Product image'
+						className='w-full h-full'
 						width={500}
 						height={800}
 					/>
@@ -90,16 +98,21 @@ const ItemDetailPage = ({ params }: { params: { id: string } }) => {
 					<h3 className=' my-6 text-xl font-bold italic'>
 						${product?.attributes?.price}
 					</h3>
-					<h4>Category: {product.attributes?.category}</h4>
+					<h4 className='my-4 capitalize font-light italic'>
+						Category: {product.attributes?.category}
+					</h4>
 					<div className='flex mb-7'>
 						<button
-							onClick={() => dispatch(increaseCount({ id: product?.id }))}
+							onClick={() => {
+								dispatch(increaseCount({ id: product?.id }));
+								setCount((prev) => prev + 1);
+							}}
 							className='p-2 bg-slate-700 text-yellow-50'>
 							<AiOutlinePlus />
 						</button>
 						<p className=' p-3'>{count}</p>
 						<button
-							onClick={() => dispatch(decreaseCount({ id: product?.id }))}
+							onClick={handleClick}
 							className='p-2 bg-slate-700 text-yellow-50'>
 							<AiOutlineMinus />
 						</button>
@@ -113,7 +126,7 @@ const ItemDetailPage = ({ params }: { params: { id: string } }) => {
 					</button>
 				</div>
 			</div>
-			<div className='p-10 mx-auto  '>
+			<div className='p-10 mx-auto max-w-[1200px] '>
 				<h3 className='text-lg font-extrabold'>Product Description :</h3>
 				<p className='my-4 p-5 font-thin'>
 					{product.attributes?.longDescription}

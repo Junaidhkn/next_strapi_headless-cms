@@ -112,7 +112,7 @@ const Slider: React.FC<ItemListProps> = ({ products }) => {
 							className='product-card'>
 							<div className='product-image'>
 								<span className='discount-tag'>50% off</span>
-								<Link href='/'>
+								<Link href={`${product.id}`}>
 									<Image
 										src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
 										alt='Cover Image'
