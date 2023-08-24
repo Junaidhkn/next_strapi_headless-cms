@@ -4,15 +4,17 @@
 
 ## // // ~~~~~~~~~~~~~~~~~~~ Best Sellers
 
-// http://localhost:1337/api/items?filters[category][$eq]=bestSellers
+//
+http://localhost:1337/api/items?populate=\*&filters[category][$eq]=bestSellers
 
 ## // // ~~~~~~~~~~~~~~~~~~~ New Arrivals
 
-// http://localhost:1337/api/items?filters[category][$eq]=newArrivals
+//
+http://localhost:1337/api/items?populate=\*&filters[category][$eq]=newArrivals
 
 // //~~~~~~~~~~~~~~~~~~~ Top Rated
 
-// http://localhost:1337/api/items?filters[category][$eq]=topRated
+// http://localhost:1337/api/items?populate=\*&filters[category][$eq]=topRated
 
 // // // // // ~~~~~~~~~~~~~~~~~~~ Men
 
