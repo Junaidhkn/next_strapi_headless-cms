@@ -13,6 +13,7 @@ import {
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { RiDeleteBinFill, RiH1 } from 'react-icons/ri';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ShoppingCart = () => {
 	const dispatch = useDispatch();
@@ -100,9 +101,14 @@ const ShoppingCart = () => {
 					<h1 className='font-light italic text-2xl text-center'>
 						Total Price: ${totalPrice}
 					</h1>
-					<button className='mt-8 px-6 py-3 bg-blue-500 text-yellow-100 rounded-lg'>
-						Proceed to Checkout
-					</button>
+					<Link href={'/checkout'}>
+						<button
+							onClick={showCartHandler}
+							disabled={cart.length === 0}
+							className='mt-8 px-6 py-3 bg-blue-500 text-yellow-100 rounded-lg'>
+							Proceed to Checkout
+						</button>
+					</Link>
 				</div>
 			</div>
 		</main>
