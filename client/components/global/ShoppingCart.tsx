@@ -3,8 +3,6 @@
 import { ImCross } from 'react-icons/im';
 import { useSelector, useDispatch } from 'react-redux';
 
-import CoverImage from '@/assets/florencia-simonini-PDZAMYvduVk-unsplash.jpeg';
-
 import { RootState } from '@/store/Provider';
 import {
 	decreaseCount,
