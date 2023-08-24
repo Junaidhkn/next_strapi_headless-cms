@@ -48,7 +48,7 @@ const Products = ({ products }: ItemListProps) => {
 						className='product-card'>
 						<div className='product-image'>
 							<Link
-								href='/'
+								href={`/${product.id}`}
 								className='w-[250px]'>
 								<Image
 									src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
