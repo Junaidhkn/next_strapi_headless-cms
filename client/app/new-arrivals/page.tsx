@@ -1,8 +1,10 @@
 import Products from '@/components/global/Products';
 
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 const NewArrivals = async () => {
 	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[category][$eq]=newArrivals',
+		`${url}/api/items?populate=*&filters[category][$eq]=newArrivals`,
 	);
 	const products = await res.json();
 	return products;

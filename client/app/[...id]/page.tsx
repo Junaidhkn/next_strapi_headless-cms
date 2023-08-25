@@ -4,9 +4,10 @@ import Image from 'next/image';
 
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { addToCart, decreaseCount, increaseCount } from '@/store';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { RootState } from '@/store/Provider';
+
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
 
 interface ItemAttributes {
 	name: string;
@@ -37,29 +38,18 @@ const ItemDetailPage = ({ params }: { params: { id: string } }) => {
 	const itemId = params.id[0];
 	const dispatch = useDispatch();
 
-	// const cart = useSelector((state: RootState) => {
-	// 	return state.cart.cart;
-	// });
-	// console.log(cart);
-
 	async function getItem() {
-		const item = await fetch(
-			`http://localhost:1337/api/items/${itemId}?populate=image`,
-			{
-				method: 'GET',
-			},
-		);
+		const item = await fetch(`${url}/api/items/${itemId}?populate=image`, {
+			method: 'GET',
+		});
 		const itemJson = await item.json();
 		setProduct(itemJson.data);
 	}
 
 	async function getItems() {
-		const items = await fetch(
-			`http://localhost:1337/api/items?populate=image`,
-			{
-				method: 'GET',
-			},
-		);
+		const items = await fetch(`${url}/api/items?populate=image`, {
+			method: 'GET',
+		});
 		const itemsJson = await items.json();
 		setItems(itemsJson.data);
 	}
@@ -83,7 +73,7 @@ const ItemDetailPage = ({ params }: { params: { id: string } }) => {
 			<div className='flex my-20 max-w-[1000px] mx-auto gap-16'>
 				<div className='w-[2200px]'>
 					<Image
-						src={`http://localhost:1337${product?.attributes.image.data.attributes.formats.medium.url}`}
+						src={`${url}${product?.attributes.image.data.attributes.formats.medium.url}`}
 						alt='Product image'
 						className='w-full h-full'
 						width={500}

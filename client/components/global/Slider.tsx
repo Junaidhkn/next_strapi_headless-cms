@@ -32,6 +32,8 @@ interface ItemListProps {
 	};
 }
 
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 const Slider: React.FC<ItemListProps> = ({ products }) => {
 	const [count, setCount] = useState(1);
 	const dispatch = useDispatch();
@@ -41,7 +43,7 @@ const Slider: React.FC<ItemListProps> = ({ products }) => {
 	const preBtnRefs = useRef<HTMLElement[]>([]);
 
 	const getItems = async () => {
-		const res = await fetch('http://localhost:1337/api/items?populate=image');
+		const res = await fetch(`${url}/api/items?populate=image`);
 		const items = await await res.json();
 		dispatch(setItems(items.data));
 	};
@@ -114,7 +116,7 @@ const Slider: React.FC<ItemListProps> = ({ products }) => {
 								<span className='discount-tag'>50% off</span>
 								<Link href={`${product.id}`}>
 									<Image
-										src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
+										src={`${url}${product.attributes.image.data.attributes.formats.medium.url}`}
 										alt='Cover Image'
 										width={800}
 										height={800}

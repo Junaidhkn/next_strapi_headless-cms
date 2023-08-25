@@ -30,6 +30,8 @@ interface ItemListProps {
 	};
 }
 
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 const Products = ({ products }: ItemListProps) => {
 	const [count, setCount] = useState(1);
 	const dispatch = useDispatch();
@@ -51,7 +53,7 @@ const Products = ({ products }: ItemListProps) => {
 								href={`/${product.id}`}
 								className='w-[250px]'>
 								<Image
-									src={`http://localhost:1337${product.attributes.image.data.attributes.formats.medium.url}`}
+									src={`${url}${product.attributes.image.data.attributes.formats.medium.url}`}
 									alt='Cover Image'
 									width={800}
 									height={800}

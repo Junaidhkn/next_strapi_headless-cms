@@ -1,8 +1,10 @@
 import Products from '@/components/global/Products';
 
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 const BestSellers = async () => {
 	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[category][$eq]=bestSellers',
+		`${url}/api/items?populate=*&filters[category][$eq]=bestSellers`,
 	);
 	const products = await res.json();
 	return products;

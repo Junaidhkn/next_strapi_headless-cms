@@ -1,16 +1,16 @@
 import Tabs from '@/components/global/Tabs';
 
+const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 const productsMenAll = async () => {
-	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[gender]=male',
-	);
+	const res = await fetch(`${url}/api/items?populate=*&filters[gender]=male`);
 	const products = await res.json();
 	return products;
 };
 
 const productsMenTopRated = async () => {
 	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=topRated',
+		`${url}/api/items?populate=*&filters[gender][$eq]=male&filters[category]=topRated`,
 	);
 	const products = await res.json();
 	return products;
@@ -18,7 +18,7 @@ const productsMenTopRated = async () => {
 
 const productsMenNewArrivals = async () => {
 	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=newArrivals',
+		`${url}/api/items?populate=*&filters[gender][$eq]=male&filters[category]=newArrivals`,
 	);
 	const products = await res.json();
 	return products;
@@ -26,7 +26,7 @@ const productsMenNewArrivals = async () => {
 
 const productsMenBestSelling = async () => {
 	const res = await fetch(
-		'http://localhost:1337/api/items?populate=*&filters[gender][$eq]=male&filters[category]=bestSelling',
+		`${url}/api/items?populate=*&filters[gender][$eq]=male&filters[category]=bestSelling`,
 	);
 	const products = await res.json();
 	return products;

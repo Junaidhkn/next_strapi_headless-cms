@@ -14,6 +14,8 @@ const CheckOut = () => {
 		return total + item.count * item.attributes.price;
 	}, 0);
 
+	const url = process.env.NEXT_PUBLIC_ACTIVE_URI;
+
 	return (
 		<div>
 			<div className='flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32'>
@@ -86,7 +88,7 @@ const CheckOut = () => {
 									className='flex flex-col rounded-lg bg-white sm:flex-row'>
 									<Image
 										className='m-2 h-24 w-28 rounded-md border object-cover object-center'
-										src={`http://localhost:1337${item.attributes.image.data.attributes.formats.small.url}`}
+										src={`${url}${item.attributes.image.data.attributes.formats.small.url}`}
 										priority={true}
 										width={150}
 										height={150}
