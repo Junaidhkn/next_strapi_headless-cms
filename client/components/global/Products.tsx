@@ -53,7 +53,7 @@ const Products = ({ products }: ItemListProps) => {
 								href={`/${product.id}`}
 								className='w-[250px]'>
 								<Image
-									src={`${url}${product.attributes.image.data.attributes.formats.medium.url}`}
+									src={`${url}${product?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
 									alt='Cover Image'
 									width={800}
 									height={800}

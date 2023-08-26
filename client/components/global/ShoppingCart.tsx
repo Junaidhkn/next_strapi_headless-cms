@@ -87,7 +87,7 @@ const ShoppingCart = () => {
 									<div className='order-1'>
 										<Image
 											className=' h-52'
-											src={`${url}${item.attributes.image.data.attributes.formats.small.url}`}
+											src={`${url}${item?.attributes.image.data.attributes.formats.small.url}`}
 											priority={true}
 											width={150}
 											height={150}
